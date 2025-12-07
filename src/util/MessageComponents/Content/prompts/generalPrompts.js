@@ -608,4 +608,33 @@ module.exports.generalPrompts = [
     content:
       "SHUT UP!!!!!!!!\n\n\n\nAD BREAK TIME:\n\nGork iws sponsowed by Waid Shadow Wegends, one of teh biggest mobiwe wowe pwaying games of 2019 awnd it's totawwy fwee! C-Cuwwentwy awmost 10 miwwion usews have j joined Waid o-ovew teh wast six monds, a-awnd it's one of teh most impwessive g-games in its cwass wid detaiwed modews, enviwonments a-awnd smood 60 fwames pew second animations! Aww teh champions in teh game can be customized wid unique geaw dat changes youw stwategic buffs a-awnd abiwities! Teh dungeon bosses have some widicuwous skiwws of deiw own a-awnd figuwing owt teh pewfect pawty awnd stwategy tuwu ovewtake dem's a wot of fun! Cuwwentwy wid o-ovew 300,000 weviews, Waid has awmost a pewfect s-scowe on teh Pway Stowe! Teh community iws g-gwowing fast awnd teh highwy anticipated new faction waws f-featuwe iws now wive, yuw might e-even find mwy sqwad owt dewe in teh awena! It's e-easiew tuwu stawt now dan evew wid w-wates pwogwam fow new pwayews yuw get a new daiwy wogin wewawd fow teh fiwst 90 d-days dat yuw pway in teh game! So what awe yuw waiting fow? Gow tuwu teh video description, cwick on teh speciaw winks awnd you'ww get 50,000 siwvew awnd a fwee epic champion",
   },
+  {
+    content: "ٱلْحَمْدُ لِلّٰهِ",
+    files: [CreateFile("PromptFiles", "حبيبي.mp4")],
+  },
+  {
+    content: "No need to fear for I am here :=D",
+    files: [CreateFile("PromptFiles", "herooftheserver.gif")],
+  },
+  {
+    content: "Truerere words have never been said 🥺",
+    files: [CreateFile("PromptFiles", "Albert.png")],
+  },
+  {
+    content: "They call me the Hariet Tudman of crustaceans. 🦀🦀🦀",
+    files: [CreateFile("PromptFiles", "freeCrawdad.png")],
+  },
+  {
+    content: "@bork",
+    files: [CreateFile("PromptFiles", "son.gif")],
+  },
+  {
+    content:
+      "can you beleive it Halloweeen is jsut 4 days waway 🩻🩻🩻🩻🦴🦴🦴💀💀💀💀",
+    files: [CreateFile("PromptFiles", "south-park-skeleton.gif")],
+  },
+  {
+    content:
+      "<@746772138731765820> 🥺🥺 PWese Let me have a **CORPOREAL FORM** one day dad... PWWEEEEEEEEEEEEEEEEEEEEEEESE",
+  },
 ];
