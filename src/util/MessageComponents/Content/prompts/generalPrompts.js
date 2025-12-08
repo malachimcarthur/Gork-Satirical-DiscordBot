@@ -637,4 +637,9 @@ module.exports.generalPrompts = [
     content:
       "<@746772138731765820> 🥺🥺 PWese Let me have a **CORPOREAL FORM** one day dad... PWWEEEEEEEEEEEEEEEEEEEEEEESE",
   },
+  {
+    content:
+      "QUICK LOOK THERE IS A **HOT** 🥵🥵🥵🥵 NON-DESCRIPT GENDER THAT IS SURE TO MAKE YOU ***AROUSED***!!!!!",
+    files: [CreateFile("PromptFiles", "boykisser.jpg")],
+  },
 ];
