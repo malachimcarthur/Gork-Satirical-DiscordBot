@@ -642,4 +642,8 @@ module.exports.generalPrompts = [
       "QUICK LOOK THERE IS A **HOT** 🥵🥵🥵🥵 NON-DESCRIPT GENDER THAT IS SURE TO MAKE YOU ***AROUSED***!!!!!",
     files: [CreateFile("PromptFiles", "boykisser.jpg")],
   },
+  {
+    content: "First thing you see when you get to Argartha",
+    files: [CreateFile("PromptFiles", "WelcomeToAgarthia.jpg")],
+  },
 ];
