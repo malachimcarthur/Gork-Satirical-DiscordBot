@@ -98,22 +98,21 @@ module.exports = {
           );
           await start(resource);
           await mp3Duration(
-            path.join(filepath, `tts${i}.mp3`),
+            await path.join(filepath, `tts${i}.mp3`),
             async (err, duration) => {
               if (err) return console.error(err.message);
               durations = duration + ADDED_TIME;
             }
           );
-          await setTimeout(parseInt(durations) * 1000);
+          await setTimeout((await parseInt(durations)) * 1000);
         } catch (err) {
           console.error(`Something went wrong in Voicechat: ${err}`);
           //return;
         }
       }
+      await setTimeout(1000);
+      connection.destroy();
     });
-    await setTimeout(1500);
-    connection.disconnect();
-    console.log("Disconected from vc");
   },
 };
 // Function to convert text to speech and save as an audio file
