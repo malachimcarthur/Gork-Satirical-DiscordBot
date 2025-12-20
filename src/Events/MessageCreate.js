@@ -44,7 +44,7 @@ async function MessageCreate(msg) {
       msg.author.send(`<@${JAX_ID}> ${jaxcount}`);
       jaxcount += 1;
     }
-    SpecialRequest(msg);
+    SpecialRequest(msg, userId);
     switch (true) {
       case CensorCheck(cleanMessage, userId, client.user.id):
         await msg.reply(
@@ -118,12 +118,17 @@ function CensorDelete(msg) {
 }
 
 // Not important enough to require any updates
-function SpecialRequest(msg) {
-  if (
-    msg.guildId === ORANGE_SERVER_ID &&
-    msg.channelId === ORANGE_TXTCHANEL_ID
-  ) {
-    msg.react("🍊");
+function SpecialRequest(msg, userId) {
+  try {
+    if (
+      msg.guildId === ORANGE_SERVER_ID &&
+      msg.channelId === ORANGE_TXTCHANEL_ID &&
+      !msg.userId.includes(client.user.id)
+    ) {
+      msg.react("🍊");
+    }
+  } catch (error) {
+    console.log("something went wrong in tangerine react:" + error);
   }
 }
 module.exports = {
