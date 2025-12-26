@@ -9,7 +9,6 @@ const {
 } = require("../util/constants.js");
 const { getRandomIntInclusive } = require("../util/randomValues.js");
 const {
-  generalPrompt,
   generalPrompts,
 } = require("../util/MessageComponents/Content/prompts/generalPrompts.js");
 const {
@@ -30,8 +29,7 @@ const {
   GeneralCheck,
 } = require("../util/MessageComponents/booleanChecks/GeneralCheck.js");
 const { CreateFile } = require("../util/MessageComponents/CreateFile.js");
-
-var jaxcount = 1;
+const fs = require("node:fs");
 
 async function MessageCreate(msg) {
   // Only reply in this function
@@ -40,10 +38,7 @@ async function MessageCreate(msg) {
   var userId = `${msg.author.id}`;
   try {
     // JAXSON SPAM
-    if (userId.includes(JAX_ID)) {
-      msg.author.send(`<@${JAX_ID}> ${jaxcount}`);
-      jaxcount += 1;
-    }
+    jaxsonSpam(userId, msg);
     SpecialRequest(msg, userId);
     switch (true) {
       case CensorCheck(cleanMessage, userId, client.user.id):
@@ -88,6 +83,30 @@ async function MessageCreate(msg) {
     console.error(
       `Something went wrong in the message creation section ${error}`
     );
+  }
+}
+
+function jaxsonSpam(userId, msg) {
+  if (userId.includes(JAX_ID)) {
+    fs.readFile("src/util/config.json", (err, data) => {
+      if (err) {
+        console.error(`Error reading file in MessageCreate:`, err);
+        return;
+      }
+      const jsonData = JSON.parse(data);
+      jsonData.jaxcount += 1;
+      msg.author.send(`<@${JAX_ID}> ${jsonData.jaxcount}`);
+      fs.writeFileSync(
+        "src/util/config.json",
+        JSON.stringify(jsonData, null, 2),
+        (err) => {
+          if (err) {
+            console.error("Error writing file in MessageCreate:", err);
+            return;
+          }
+        }
+      );
+    });
   }
 }
 

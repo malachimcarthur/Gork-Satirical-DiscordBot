@@ -1,4 +1,3 @@
-const { token } = require("./util/config.json");
 const { client } = require("./util/client.js");
 const { Events } = require("discord.js");
 const { MessageReaction } = require("./Events/Reaction.js");
@@ -47,5 +46,9 @@ client.on(Events.VoiceStateUpdate, async (oldState, newState) => {
     return;
   }
 });
-
-client.login(token);
+const { token } = require("./util/config.json");
+try {
+  client.login(token);
+} catch (err) {
+  console.log(`Unable to login ${err}`);
+}

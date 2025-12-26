@@ -1,5 +1,5 @@
 const { client } = require("../util/client.js");
-const { botID, token } = require("../util/config.json");
+
 const { REST, Routes, Collection, MessageFlags } = require("discord.js");
 const fs = require("node:fs");
 const path = require("node:path");
@@ -28,6 +28,8 @@ for (const folder of commandFolders) {
     }
   }
 }
+jsonCreate();
+const { botID, token } = require("../util/config.json");
 const rest = new REST().setToken(token);
 // and deploy your commands!
 (async () => {
@@ -49,6 +51,15 @@ const rest = new REST().setToken(token);
     console.error(error);
   }
 })();
+
+function jsonCreate() {
+  if (!fs.existsSync("src/util/config.json")) {
+    fs.writeFileSync(
+      "src/util/config.json",
+      JSON.stringify({ token: "", botID: "", jaxcount: 0 })
+    );
+  }
+}
 
 async function CommandDeploy(interaction) {
   if (!interaction.isChatInputCommand()) return;
