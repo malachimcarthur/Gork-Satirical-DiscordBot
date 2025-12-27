@@ -1,50 +1,108 @@
+const fs = require("node:fs");
+const { wordleFailMessage } = require("./Content/Wordle/Fail/prompts");
+const failFiles = fs.readdirSync(
+  "./src/util/MessageComponents/Content/Wordle/Fail/GIFS"
+);
+const { wordle1Message } = require("./Content/Wordle/In1/prompts");
+const wordle1Files = fs.readdirSync(
+  "./src/util/MessageComponents/Content/Wordle/In1/GIFS"
+);
+const { wordle2Message } = require("./Content/Wordle/In2/prompts");
+const wordle2Files = fs.readdirSync(
+  "./src/util/MessageComponents/Content/Wordle/In2/GIFS"
+);
+const { wordle3Message } = require("./Content/Wordle/In3/prompts");
+const wordle3Files = fs.readdirSync(
+  "./src/util/MessageComponents/Content/Wordle/In3/GIFS"
+);
+const { wordle4Message } = require("./Content/Wordle/In4/prompts");
+const wordle4Files = fs.readdirSync(
+  "./src/util/MessageComponents/Content/Wordle/In4/GIFS"
+);
+const { wordle5Message } = require("./Content/Wordle/In5/prompts");
+const wordle5Files = fs.readdirSync(
+  "./src/util/MessageComponents/Content/Wordle/In5/GIFS"
+);
+const { wordle6Message } = require("./Content/Wordle/In6/prompts");
+const wordle6Files = fs.readdirSync(
+  "./src/util/MessageComponents/Content/Wordle/In6/GIFS"
+);
 const { CreateFile } = require("./CreateFile");
+const { getRandomIntInclusive } = require("../randomValues");
 function Wordle(int, userId) {
   if (int == "" || int.valueOf() > 6 || int.valueOf <= 0) {
     int = "Fail";
   }
   switch (int) {
     case "1":
-      return { content: `<@${userId}> cheated` };
+      return {
+        content: wordle1Message(userId),
+        files: [
+          CreateFile(
+            "Wordle/In1/GIFS",
+            `wordleIn1_${getRandomIntInclusive(wordle1Files.length - 1)}.gif`
+          ),
+        ],
+      };
     case "2":
       return {
-        content: `<@${userId}> Thats How we do `,
-        files: [CreateFile("Wordle", `wordleIn${int}.gif`)],
+        content: wordle2Message(userId),
+        files: [
+          CreateFile(
+            "Wordle/In2/GIFS",
+            `wordleIn2_${getRandomIntInclusive(wordle2Files.length - 1)}.gif`
+          ),
+        ],
       };
     case "3":
-      if (
-        userId.includes("663106262359080971") ||
-        userId.includes("626531197484269578")
-      ) {
-        return {
-          content: `Hate on<@${userId}>`,
-          files: [CreateFile("Wordle", `wordleIn${int}.gif`)],
-        };
-      } else {
-        return {
-          content: `Don't Hate on<@${userId}>`,
-          files: [CreateFile("Wordle", `wordleIn${int}.gif`)],
-        };
-      }
+      return {
+        content: wordle3Message(userId),
+        files: [
+          CreateFile(
+            "Wordle/In3/GIFS",
+            `wordleIn3_${getRandomIntInclusive(wordle3Files.length - 1)}.gif`
+          ),
+        ],
+      };
     case "4":
       return {
-        content: `here <@${userId}>ROAR :wolf: `,
-        files: [CreateFile("Wordle", `wordleIn${int}.gif`)],
+        content: wordle4Message(userId),
+        files: [
+          CreateFile(
+            "Wordle/In4/GIFS",
+            `wordleIn4_${getRandomIntInclusive(wordle4Files.length - 1)}.gif`
+          ),
+        ],
       };
     case "5":
       return {
-        content: `<@${userId}> womp womp `,
-        files: [CreateFile("Wordle", `wordleIn${int}.gif`)],
+        content: wordle5Message(userId),
+        files: [
+          CreateFile(
+            "Wordle/In5/GIFS",
+            `wordleIn5_${getRandomIntInclusive(wordle5Files.length - 1)}.gif`
+          ),
+        ],
       };
     case "6":
       return {
-        content: `<@${userId}> Dont fall for dem trixs `,
-        files: [CreateFile("Wordle", `wordleIn${int}.gif`)],
+        content: wordle6Message(userId),
+        files: [
+          CreateFile(
+            "Wordle/In6/GIFS",
+            `wordleIn6_${getRandomIntInclusive(wordle6Files.length - 1)}.gif`
+          ),
+        ],
       };
     default:
       return {
-        content: `I have been programed to say <@${userId}> failed in this instance `,
-        files: [CreateFile("Wordle", `wordleIn${int}.gif`)],
+        content: wordleFailMessage(userId),
+        files: [
+          CreateFile(
+            "Wordle/Fail/GIFS",
+            `wordleInFail_${getRandomIntInclusive(failFiles.length - 1)}.gif`
+          ),
+        ],
       };
   }
 }
