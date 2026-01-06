@@ -99,7 +99,7 @@ module.exports.specialPrompts = [
 ];
 
 module.exports.triggers = [
-  "what did i sacrifice",
+  "what do i sacrifice",
   "love tyson",
   "miku",
   "larry",
