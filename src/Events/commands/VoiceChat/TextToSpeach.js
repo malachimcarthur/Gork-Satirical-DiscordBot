@@ -14,6 +14,7 @@ const { console } = require("inspector");
 const { setTimeout } = require("timers/promises");
 const mp3Duration = require("mp3-duration");
 const { ADDED_TIME } = require("../../../util/constants");
+const { channel } = require("diagnostics_channel");
 
 const filepath = path.join(__dirname, "tts_mp3");
 var durations = 0;
@@ -56,7 +57,9 @@ module.exports = {
           { name: "Hindi", value: "hi" },
           { name: "Croatian", value: "hr" }
         )
-    ),
+    )
+    .addStringOption((channelId) => channelId.setName("Override"))
+    .setDescription("Manuelly set where to play the tts"),
   // When the command is called
   async execute(interaction) {
     await interaction.deferReply({ flags: MessageFlags.Ephemeral });
@@ -71,8 +74,12 @@ module.exports = {
       content: `playing message`,
       flags: MessageFlags.Ephemeral,
     });
+    let channelId = interaction.member.voice.channel.id;
+    if (interaction.options.getString("overide") != null) {
+      channelId = interaction.options.getString("overide");
+    }
     const connection = joinVoiceChannel({
-      channelId: interaction.member.voice.channel.id,
+      channelId: channelId,
       guildId: interaction.guild.id,
       adapterCreator: interaction.guild.voiceAdapterCreator,
     });
