@@ -96,6 +96,8 @@ module.exports.specialPrompts = [
   "https://tenor.com/view/hate-hate-drive-activated-activate-mad-hater-gif-23479256",
   // Brazil
   "https://cdn.discordapp.com/attachments/1394019812015079495/1438374710411923487/IMG_3403.png?ex=6916a656&is=691554d6&hm=9986c81b45dc2cf9648960193764bb8f2b8b2612bffdc48f4bcb5a95da101cfe&",
+  // A succulent Chinese meal
+  "Mister, you just assured me that I could speak. Look, I'm under what? Gentlemen, this is democracy manifest. Have a look at the headlock here, see that chap over there? he- GET YOUR HAND OFF MY PENIS! This is the bloke who got me on the penis people. Why did you do this to me, for what reason, what is the charge? Eating a meal? A succulent chinese meal? Oh, that's a nice headlock sir, oh, ah yes, I see that you know your judo well. Good one. And you sir, are you waiting to receive my limp penis? How dare – get your hands off me! Ta-ta, and farewell.",
 ];
 
 module.exports.triggers = [
@@ -120,4 +122,5 @@ module.exports.triggers = [
   "bill clinton",
   "hate evan",
   "brazil",
+  "succulent",
 ];

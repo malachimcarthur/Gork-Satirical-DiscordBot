@@ -123,7 +123,11 @@ module.exports = {
         }
       }
       await setTimeout(1000);
-      connection.destroy();
+      try {
+        connection.destroy();
+      } catch (error) {
+        console.error(error);
+      }
     });
   },
 };
