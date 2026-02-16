@@ -10,11 +10,9 @@ const path = require("path");
 const tts = require("google-tts-api");
 const axios = require("axios");
 const { player } = require("../../../util/player");
-const { console } = require("inspector");
 const { setTimeout } = require("timers/promises");
 const mp3Duration = require("mp3-duration");
 const { ADDED_TIME } = require("../../../util/constants");
-const { channel } = require("diagnostics_channel");
 
 const filepath = path.join(__dirname, "tts_mp3");
 var durations = 0;
@@ -58,8 +56,11 @@ module.exports = {
           { name: "Croatian", value: "hr" }
         )
     )
-    .addStringOption((channelId) => channelId.setName("Override"))
-    .setDescription("Manuelly set where to play the tts"),
+    .addStringOption((channelId) =>
+      channelId
+        .setName("override")
+        .setDescription("Manuelly set where to play the tts")
+    ),
   // When the command is called
   async execute(interaction) {
     await interaction.deferReply({ flags: MessageFlags.Ephemeral });
@@ -74,9 +75,11 @@ module.exports = {
       content: `playing message`,
       flags: MessageFlags.Ephemeral,
     });
-    let channelId = interaction.member.voice.channel.id;
-    if (interaction.options.getString("overide") != null) {
-      channelId = interaction.options.getString("overide");
+    let channelId;
+    if (interaction.options.getString("override") != null) {
+      channelId = interaction.options.getString("override");
+    } else {
+      channelId = interaction.member.voice.channel.id;
     }
     const connection = joinVoiceChannel({
       channelId: channelId,
@@ -100,10 +103,12 @@ module.exports = {
 
       for (let i = 0; i < files.length; i++) {
         try {
+          console.log(`created ${i} resource`);
           const resource = await createAudioResource(
             path.join(filepath, `tts${i}.mp3`)
           );
           await start(resource);
+          console.log(`started ${i} resource`);
           await mp3Duration(
             await path.join(filepath, `tts${i}.mp3`),
             async (err, duration) => {

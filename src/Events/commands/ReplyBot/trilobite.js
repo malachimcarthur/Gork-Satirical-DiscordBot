@@ -16,7 +16,7 @@ module.exports = {
         files: [CreateFile("trilobite", `Trilobite${number}.webp`)],
       });
     } catch (error) {
-      console.error(`Something went wrong in trilobite${error}`);
+      console.error(`Something went wrong in trilobite: ${error}`);
     }
   },
 };
