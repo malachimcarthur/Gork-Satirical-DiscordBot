@@ -16,6 +16,7 @@ module.exports = {
         .setName("message")
         .setDescription("The message to send to the user")
         .setRequired(true)
+        .setMaxLength(2000)
     ),
   async execute(interaction) {
     try {

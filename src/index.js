@@ -19,11 +19,11 @@ client.on(Events.MessageReactionAdd, async (react) => {
 });
 client.on(Events.MessageCreate, async (msg) => {
   try {
-    message = `${msg.createdAt.getHours()}:${msg.createdAt.getMinutes()} ${
+    let message = `${msg.createdAt.getHours()}:${msg.createdAt.getMinutes()} ${
       msg.author.username
     } ${msg.content}`;
     if (msg.channelId != DM_CHANNEL_ID) {
-      if (!msg.inGuild()) {
+      if (!msg.inGuild() && message.length < 2000) {
         client.users.send(DM_USER, message);
       } // Logs to my DM
       console.log(message);
