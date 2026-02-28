@@ -40,7 +40,7 @@ function Wordle(int, userId) {
         files: [
           CreateFile(
             "Wordle/In1/GIFS",
-            `wordleIn1_${getRandomIntInclusive(wordle1Files.length - 1)}.gif`
+            wordle1Files.at(getRandomIntInclusive(wordle1Files.length - 1))
           ),
         ],
       };
@@ -50,7 +50,7 @@ function Wordle(int, userId) {
         files: [
           CreateFile(
             "Wordle/In2/GIFS",
-            `wordleIn2_${getRandomIntInclusive(wordle2Files.length - 1)}.gif`
+            wordle2Files.at(getRandomIntInclusive(wordle2Files.length - 1))
           ),
         ],
       };
@@ -60,7 +60,7 @@ function Wordle(int, userId) {
         files: [
           CreateFile(
             "Wordle/In3/GIFS",
-            `wordleIn3_${getRandomIntInclusive(wordle3Files.length - 1)}.gif`
+            wordle3Files.at(getRandomIntInclusive(wordle3Files.length - 1))
           ),
         ],
       };
@@ -70,7 +70,7 @@ function Wordle(int, userId) {
         files: [
           CreateFile(
             "Wordle/In4/GIFS",
-            `wordleIn4_${getRandomIntInclusive(wordle4Files.length - 1)}.gif`
+            wordle4Files.at(getRandomIntInclusive(wordle4Files.length - 1))
           ),
         ],
       };
@@ -80,7 +80,7 @@ function Wordle(int, userId) {
         files: [
           CreateFile(
             "Wordle/In5/GIFS",
-            `wordleIn5_${getRandomIntInclusive(wordle5Files.length - 1)}.gif`
+            wordle5Files.at(getRandomIntInclusive(wordle5Files.length - 1))
           ),
         ],
       };
@@ -90,7 +90,7 @@ function Wordle(int, userId) {
         files: [
           CreateFile(
             "Wordle/In6/GIFS",
-            `wordleIn6_${getRandomIntInclusive(wordle6Files.length - 1)}.gif`
+            wordle6Files.at(getRandomIntInclusive(wordle6Files.length - 1))
           ),
         ],
       };
@@ -100,7 +100,7 @@ function Wordle(int, userId) {
         files: [
           CreateFile(
             "Wordle/Fail/GIFS",
-            `WordleInFail_${getRandomIntInclusive(failFiles.length - 1)}.gif`
+            failFiles.at(getRandomIntInclusive(failFiles.length - 1))
           ),
         ],
       };
