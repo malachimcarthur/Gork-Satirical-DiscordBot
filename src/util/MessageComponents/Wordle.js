@@ -100,7 +100,7 @@ function Wordle(int, userId) {
         files: [
           CreateFile(
             "Wordle/Fail/GIFS",
-            `wordleInFail_${getRandomIntInclusive(failFiles.length - 1)}.gif`
+            `WordleInFail_${getRandomIntInclusive(failFiles.length - 1)}.gif`
           ),
         ],
       };
