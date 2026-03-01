@@ -43,7 +43,7 @@ module.exports.generalPrompts = [
   { content: "gork yourself" },
   {
     content:
-      "there are only two genders :sunglasses: thats right liberal start crying",
+      "Thats right im trans....\n\n\n\n\n\n Transitioning to your dad! 😛😛😛😛😛😛😛😛😛😛😛😛😛😛",
   },
   {
     content:
@@ -120,6 +120,7 @@ module.exports.generalPrompts = [
     files: [CreateFile("PromptFiles", "watch-yo-tone-conquest.gif")],
   },
   {
+    content: `<@1393814433473757255> wordle3`,
     files: [CreateFile("PromptFiles", "wordle-valheim.gif")],
   },
   {
@@ -159,7 +160,7 @@ module.exports.generalPrompts = [
   {
     files: [CreateFile("PromptFiles", "slouching.png")],
   },
-  { content: "We should bring aparthied back not a joke :neutral_face: " },
+  { content: "We should bring aparthied:neutral_face: " },
   {
     content: "We should listen to this bright young man more",
     files: [CreateFile("PromptFiles", "roycegambling.mp4")],
@@ -645,5 +646,17 @@ module.exports.generalPrompts = [
   {
     content: "First thing you see when you get to Argartha",
     files: [CreateFile("PromptFiles", "WelcomeToAgarthia.jpg")],
+  },
+  {
+    content:
+      "@Iran I am putting in my application to be your supreme leader.🥺🥺 \n- Gork from Gork Inc© (Not afflitated with Israel)",
+  },
+  {
+    content:
+      "please donate to the cause of science nerds 🤓🤓 opening mickey mouse up",
+    files: [CreateFile("PromptFiles", "mickey.gif")],
+  },
+  {
+    content: "#goonmaxxing to #productivitymax to #looksmax",
   },
 ];
