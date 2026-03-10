@@ -659,4 +659,12 @@ module.exports.generalPrompts = [
   {
     content: "#goonmaxxing to #productivitymax to #looksmax",
   },
+  {
+    content:
+      "For me, the love of the game (systematically scamming the poor out of their welfare checks) keeps me invigorated and turgid.",
+  },
+  {
+    content:
+      "If my math is right (and it rarely is), there are countless opportunities to earn an easy $8T at any moment.\nThink about it: there are around 8B on this planet. Collect $3M from each of them (extra for the state of Israel) to make your $8T.",
+  },
 ];
