@@ -667,4 +667,11 @@ module.exports.generalPrompts = [
     content:
       "If my math is right (and it rarely is), there are countless opportunities to earn an easy $8T at any moment.\nThink about it: there are around 8B on this planet. Collect $3M from each of them (extra for the state of Israel) to make your $8T.",
   },
+  {
+    content: "Edge me!!!\n\n\n\n\n\n\n**NOW!!!!!!!!!!!!!!!!!!**",
+  },
+  {
+    content:
+      "I have attached my entire health history in direct violation of HIPAA [https://github.com/malachimcarthur/Gork-Satirical-DiscordBot/activity]. I’m now suing you for having this in your possesion. Pay this invoice immediately [https://stateofisrael.com/].",
+  },
 ];
