@@ -2,7 +2,7 @@ const { client } = require("./util/client.js");
 const { Events } = require("discord.js");
 const { MessageReaction } = require("./Events/Reaction.js");
 const { Ready } = require("./Events/Ready.js");
-const { MessageCreate } = require("./Events/MessageCreate.js");
+const { MessageCreate } = require("./Events/MessageCreate.ts");
 const { CommandDeploy } = require("./Events/Command.js");
 const { DM_USER, DM_CHANNEL_ID } = require("./util/constants.js");
 const { killVC } = require("./util/killVC.js");
@@ -22,16 +22,12 @@ client.on(Events.MessageCreate, async (msg) => {
     let message = `${msg.createdAt.getHours()}:${msg.createdAt.getMinutes()} ${
       msg.author.username
     } ${msg.content}`;
-    if (msg.channelId != DM_CHANNEL_ID) {
-      if (!msg.inGuild() && message.length < 2000) {
-        client.users.send(DM_USER, message);
-      } // Logs to my DM
-      console.log(message);
-    }
+    console.log(message);
   } catch (error) {
     console.error(`Error with logging: ${error}`);
   }
-  MessageCreate(msg);
+  MessageCreate.jaxsonSpam(msg);
+  MessageCreate.reply(msg);
 });
 client.on(Events.InteractionCreate, async (interaction) => {
   CommandDeploy(interaction);
