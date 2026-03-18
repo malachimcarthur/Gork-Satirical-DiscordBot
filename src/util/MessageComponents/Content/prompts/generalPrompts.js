@@ -674,4 +674,8 @@ module.exports.generalPrompts = [
     content:
       "I have attached my entire health history in direct violation of HIPAA [https://github.com/malachimcarthur/Gork-Satirical-DiscordBot/activity]. I’m now suing you for having this in your possesion. Pay this invoice immediately [https://stateofisrael.com/].",
   },
+  {
+    content: "Join me:stuck_out_tongue: the waters fine.",
+    files: [CreateFile("PromptFiles", "miku_bath.jpg")],
+  },
 ];
