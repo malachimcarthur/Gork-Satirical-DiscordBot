@@ -1,5 +1,3 @@
-import type { Message, OmitPartialGroupDMChannel } from "discord.js";
-
 const { client } = require("../util/client.js");
 const { JAX_ID } = require("../util/constants.js");
 const { getRandomIntInclusive } = require("../util/randomValues.js");
@@ -21,8 +19,8 @@ const {
 } = require("../util/MessageComponents/Content/prompts/censorList.js");
 
 class MessageCreate {
-  msg!: OmitPartialGroupDMChannel<Message<boolean>>;
-  static jaxsonSpam(msg: OmitPartialGroupDMChannel<Message<boolean>>) {
+  msg!: any;
+  static jaxsonSpam(msg: any) {
     if (msg.author.id.includes(JAX_ID)) {
       fs.readFile("src/util/config.json", (err: any, data: string) => {
         if (err) {
@@ -46,7 +44,7 @@ class MessageCreate {
     }
   }
 
-  public static async reply(msg: OmitPartialGroupDMChannel<Message<boolean>>) {
+  public static async reply(msg: any) {
     if (this.censorCheck(msg)) {
       await msg.reply(
         `How dare you <@${msg.author.id}>, your language disgusts me!😡\n\nRead at your own risk: ||${msg.content}||`
@@ -62,9 +60,7 @@ class MessageCreate {
     }
   }
 
-  private static classifyMessage(
-    msg: OmitPartialGroupDMChannel<Message<boolean>>
-  ) {
+  private static classifyMessage(msg: any) {
     if (this.factCheck(msg)) {
       return questionprompts[getRandomIntInclusive(questionprompts.length - 1)];
     }
@@ -82,19 +78,17 @@ class MessageCreate {
     if (msg.author.id == client.user.id) {
       return null;
     }
-    let prompt = this.specialCaseSearch(triggers, specialPrompts, msg);
+    let prompt = this.specialCaseSearch(specialPrompts, msg);
     if (prompt) {
       return prompt;
     }
     return null;
   }
-  private static generalCheck(
-    msg: OmitPartialGroupDMChannel<Message<boolean>>
-  ) {
+  private static generalCheck(msg: any) {
     return msg.content.toLowerCase().includes(`<@${client.user.id}>`);
   }
 
-  private static censorCheck(msg: OmitPartialGroupDMChannel<Message<boolean>>) {
+  private static censorCheck(msg: any) {
     if (msg.author.id.includes(client.user.id)) {
       return false;
     }
@@ -106,9 +100,7 @@ class MessageCreate {
     }
     return false;
   }
-  private static gorkMisspell(
-    msg: OmitPartialGroupDMChannel<Message<boolean>>
-  ) {
+  private static gorkMisspell(msg: any) {
     if (
       // returns -1 if not included
       msg.content.toLowerCase().search(/@[a-z]ork/gis) > -1 ||
@@ -119,13 +111,13 @@ class MessageCreate {
       return false;
     }
   }
-  private static wordleCheck(msg: OmitPartialGroupDMChannel<Message<boolean>>) {
+  private static wordleCheck(msg: any) {
     return (
       msg.content.includes(`<@${client.user.id}>`) &&
       msg.content.toLowerCase().includes("wordle")
     );
   }
-  private static factCheck(msg: OmitPartialGroupDMChannel<Message<boolean>>) {
+  private static factCheck(msg: any) {
     return (
       msg.content.toLowerCase().includes(`<@${client.user.id}>`) &&
       (msg.content.toLowerCase().includes("fake") ||
@@ -134,14 +126,14 @@ class MessageCreate {
     );
   }
   private static specialCaseSearch(
-    trigger: string | any[],
-    prompt: string[],
-    msg: OmitPartialGroupDMChannel<Message<boolean>>
+    prompt: { [trigger: string]: string },
+    msg: any
   ) {
-    for (let i = 0; i < trigger.length; i++) {
-      if (msg.content.toLowerCase().includes(trigger[i])) {
+    let tokens = msg.content.toLowerCase().split(" ");
+    for (let token of tokens) {
+      if (prompt[token]) {
         try {
-          return prompt[i];
+          return prompt[token];
         } catch (error) {
           console.error(error);
           return;
