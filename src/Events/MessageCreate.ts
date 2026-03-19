@@ -19,7 +19,6 @@ const {
 } = require("../util/MessageComponents/Content/prompts/censorList.js");
 
 class MessageCreate {
-  msg: any;
   static jaxsonSpam(msg: any) {
     if (msg.author.id.includes(JAX_ID)) {
       fs.readFile("src/util/config.json", (err: any, data: string) => {
