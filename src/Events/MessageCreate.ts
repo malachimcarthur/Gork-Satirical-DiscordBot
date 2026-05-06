@@ -21,6 +21,16 @@ const {
 } = require("../util/MessageComponents/Content/prompts/censorList.js");
 
 class MessageCreate {
+  static randomReact(msg: OmitPartialGroupDMChannel<Message<boolean>>) {
+    if (getRandomIntInclusive(100) == 67) {
+      msg.react("🫃");
+      msg.react("🤤");
+      msg.react("👨‍🦲");
+      msg.react("😛");
+      msg.react("🍆");
+      msg.react("👅");
+    }
+  }
   static jaxsonSpam(msg: OmitPartialGroupDMChannel<Message<boolean>>) {
     if (msg.author.id.includes(JAX_ID)) {
       fs.readFile("src/util/config.json", (err: any, data: string) => {

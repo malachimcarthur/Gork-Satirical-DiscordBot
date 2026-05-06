@@ -26,6 +26,7 @@ client.on(Events.MessageCreate, async (msg) => {
   } catch (error) {
     console.error(`Error with logging: ${error}`);
   }
+  MessageCreate.randomReact(msg);
   MessageCreate.jaxsonSpam(msg);
   MessageCreate.reply(msg);
 });
