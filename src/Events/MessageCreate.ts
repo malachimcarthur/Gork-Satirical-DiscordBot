@@ -22,14 +22,16 @@ const {
 
 class MessageCreate {
   static randomReact(msg: OmitPartialGroupDMChannel<Message<boolean>>) {
-    if (getRandomIntInclusive(100) == 67) {
-      msg.react("🫃");
-      msg.react("🤤");
-      msg.react("👨‍🦲");
-      msg.react("😛");
-      msg.react("🍆");
-      msg.react("👅");
-    }
+    try {
+      if (getRandomIntInclusive(100) == 67 && msg.editable && msg.deletable) {
+        msg.react("🫃");
+        msg.react("🤤");
+        msg.react("👨‍🦲");
+        msg.react("😛");
+        msg.react("🍆");
+        msg.react("👅");
+      }
+    } catch (e) {}
   }
   static jaxsonSpam(msg: OmitPartialGroupDMChannel<Message<boolean>>) {
     if (msg.author.id.includes(JAX_ID)) {
