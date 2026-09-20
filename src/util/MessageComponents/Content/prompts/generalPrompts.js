@@ -173,10 +173,6 @@ module.exports.generalPrompts = [
     files: [CreateFile("PromptFiles", "robloxgirl.png")],
   },
   {
-    content: "Finally A REAL YOUTUBER",
-    files: [CreateFile("PromptFiles", "EvilPreston.gif")],
-  },
-  {
     content: "Bottom Text",
     files: [CreateFile("PromptFiles", "oompaloompa.png")],
   },
@@ -349,7 +345,7 @@ module.exports.generalPrompts = [
     files: [
       CreateFile(
         "PromptFiles",
-        "last-chance-to-look-at-me-hector-breaking-bad.gif"
+        "last-chance-to-look-at-me-hector-breaking-bad.gif",
       ),
     ],
   },
@@ -474,7 +470,7 @@ module.exports.generalPrompts = [
     files: [
       CreateFile(
         "PromptFiles",
-        "sparkle-on-its-wednesday-dont-forget-to-be-yourself.gif"
+        "sparkle-on-its-wednesday-dont-forget-to-be-yourself.gif",
       ),
     ],
   },
@@ -487,7 +483,7 @@ module.exports.generalPrompts = [
     files: [
       CreateFile(
         "PromptFiles",
-        "Dream - Mask (Official Music Video) (REUPLOADED).mp4"
+        "Dream - Mask (Official Music Video) (REUPLOADED).mp4",
       ),
     ],
   },
