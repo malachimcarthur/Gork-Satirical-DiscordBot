@@ -1,4 +1,4 @@
-import type { Message, OmitPartialGroupDMChannel } from "discord.js";
+import { Message, OmitPartialGroupDMChannel } from "discord.js";
 
 const { client } = require("../util/client.js");
 const { JAX_ID } = require("../util/constants.js");
@@ -51,7 +51,7 @@ class MessageCreate {
               console.error("Error writing file in MessageCreate:", err);
               return;
             }
-          }
+          },
         );
       });
     }
@@ -60,7 +60,7 @@ class MessageCreate {
   public static async reply(msg: OmitPartialGroupDMChannel<Message<boolean>>) {
     if (this.censorCheck(msg)) {
       await msg.reply(
-        `How dare you <@${msg.author.id}>, your language disgusts me!😡\n\nRead at your own risk: ||${msg.content}||`
+        `How dare you <@${msg.author.id}>, your language disgusts me!😡\n\nRead at your own risk: ||${msg.content}||`,
       );
       if (msg.deletable) {
         msg.delete();
@@ -74,7 +74,7 @@ class MessageCreate {
   }
 
   private static classifyMessage(
-    msg: OmitPartialGroupDMChannel<Message<boolean>>
+    msg: OmitPartialGroupDMChannel<Message<boolean>>,
   ) {
     if (this.factCheck(msg)) {
       return questionprompts[getRandomIntInclusive(questionprompts.length - 1)];
@@ -100,7 +100,7 @@ class MessageCreate {
     return null;
   }
   private static generalCheck(
-    msg: OmitPartialGroupDMChannel<Message<boolean>>
+    msg: OmitPartialGroupDMChannel<Message<boolean>>,
   ) {
     return msg.content.toLowerCase().includes(`<@${client.user.id}>`);
   }
@@ -118,7 +118,7 @@ class MessageCreate {
     return false;
   }
   private static gorkMisspell(
-    msg: OmitPartialGroupDMChannel<Message<boolean>>
+    msg: OmitPartialGroupDMChannel<Message<boolean>>,
   ) {
     if (
       // returns -1 if not included
@@ -146,7 +146,7 @@ class MessageCreate {
   }
   private static specialCaseSearch(
     prompt: { [trigger: string]: string },
-    msg: OmitPartialGroupDMChannel<Message<boolean>>
+    msg: OmitPartialGroupDMChannel<Message<boolean>>,
   ) {
     let tokens = msg.content.toLowerCase().split(" ");
     for (let token of tokens) {
