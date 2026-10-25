@@ -1,4 +1,4 @@
-import { Message, OmitPartialGroupDMChannel } from "discord.js";
+import type { Message, OmitPartialGroupDMChannel } from "discord.js";
 
 const { client } = require("../util/client.js");
 const { JAX_ID } = require("../util/constants.js");
