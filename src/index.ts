@@ -7,6 +7,7 @@ const { CommandDeploy } = require("./Events/Command.js");
 const { DM_USER, DM_CHANNEL_ID } = require("./util/constants.js");
 const { killVC } = require("./util/killVC.js");
 
+(globalThis.self as any) = globalThis;
 Ready();
 client.on(Events.Error, async (error: any) => {
   client.users.send(DM_USER, error);
