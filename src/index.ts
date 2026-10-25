@@ -7,17 +7,16 @@ const { CommandDeploy } = require("./Events/Command.js");
 const { DM_USER, DM_CHANNEL_ID } = require("./util/constants.js");
 const { killVC } = require("./util/killVC.js");
 
-global.self = global;
 Ready();
-client.on(Events.Error, async (error) => {
+client.on(Events.Error, async (error: any) => {
   client.users.send(DM_USER, error);
   console.error(error);
 }); // May not work
 
-client.on(Events.MessageReactionAdd, async (react) => {
+client.on(Events.MessageReactionAdd, async (react: any) => {
   MessageReaction(react);
 });
-client.on(Events.MessageCreate, async (msg) => {
+client.on(Events.MessageCreate, async (msg: any) => {
   try {
     let message = `${msg.createdAt.getHours()}:${msg.createdAt.getMinutes()} ${
       msg.author.username
@@ -30,11 +29,11 @@ client.on(Events.MessageCreate, async (msg) => {
   MessageCreate.jaxsonSpam(msg);
   MessageCreate.reply(msg);
 });
-client.on(Events.InteractionCreate, async (interaction) => {
+client.on(Events.InteractionCreate, async (interaction: any) => {
   CommandDeploy(interaction);
 });
 
-client.on(Events.VoiceStateUpdate, async (oldState, newState) => {
+client.on(Events.VoiceStateUpdate, async (oldState: any, newState: any) => {
   try {
     if (oldState.member.id === client.user.id && !newState.channel) {
       killVC();
